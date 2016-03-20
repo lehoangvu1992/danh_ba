@@ -1,0 +1,18 @@
+
+<div class="contact-name">
+<%= @contact.name%>
+</div>
+
+<%= image_tag @contact.image.url(:large) %>
+
+<div class="contact-number">
+  <%= @contact.number %>
+</div>
+
+  <div class="contact-info">
+    <%= link_to 'Sửa', edit_contact_path(@contact)%>
+  </div>
+
+  <div class="contact-info">
+    <%= link_to 'Xoá', contact_path(@contact), method: :delete, data: { confirm: 'Bạn có muốn xoá bài này không?' } %>
+  </div>

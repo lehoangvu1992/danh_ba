@@ -1,0 +1,24 @@
+
+<div class="container">
+  <h2>Danh Bạ</h2>          
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Tên</th>
+        <th>Số điện thoại</th>
+        <th>Địa chỉ</th>
+        <th>Ghi chú</th>
+      </tr>
+    </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= link_to contact.name, contact_path(contact) %></td>
+        <td><%= contact.number %></td>
+        <td><%= contact.address %></td>
+        <td><%= contact.note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>

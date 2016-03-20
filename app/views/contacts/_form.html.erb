@@ -1,0 +1,60 @@
+<%= form_for @contact, html: {multipart: true } do |f| %>
+
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image%>
+  </div>
+
+  <div>
+    <% if @contact.errors[:name].length > 0 %>
+      <p><%= @contact.errors[:name][0] %></p>
+    <% end %>
+    <%= f.label :name %>
+   </div>
+
+  <div>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <% if @contact.errors[:number].length > 0 %>
+      <p><%= @contact.errors[:number][0] %></p>
+    <% end %>
+    <%= f.label :number %>
+   </div>
+
+  <div>
+    <%= f.text_field :number %>
+  </div>
+
+
+  <div>
+    <% if @contact.errors[:address].length > 0 %>
+      <p><%= @contact.errors[:address][0] %></p>
+    <% end %>
+    <%= f.label :address %>
+  </div>
+
+  <div>
+    <%= f.text_area :address, size: "60x12" %>
+  </div>
+
+  <div>
+    <% if @contact.errors[:note].length > 0 %>
+      <p><%= @contact.errors[:note][0] %></p>
+    <% end %>
+    <%= f.label :note %>
+  </div>
+
+  <div>
+    <%= f.text_area :note, size: "60x12" %>
+  </div>
+
+  <div>
+    <% if @contact.new_record? %>
+      <%= f.submit "create" %>
+    <% else %>
+      <%= f.submit "update" %>
+    <%end%>
+  </div>
+<% end %>

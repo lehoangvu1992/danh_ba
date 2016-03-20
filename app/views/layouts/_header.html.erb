@@ -1,0 +1,60 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <%= link_to image_tag("Contacts.png", width: '60', height: '60'), root_path ,{ class: "navbar-brand" }%>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+
+          <%if user_signed_in?%>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                 <%= current_user.email %><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to edit_user_registration_path do %>
+                    <span class="glyphicon glyphicon-user"></span> Cập nhật thông tin cá nhân
+                  <% end %>
+                </li>
+
+                <li>
+                  <%= link_to new_contact_path do %>
+                    <span class="glyphicon glyphicon-pencil"></span> Đăng bài
+                  <% end %>
+                </li>
+
+                <li>
+                  <%= link_to my_contacts_path do %>
+                    <span class="glyphicon glyphicon-th-list"></span> Quản lý bài viết
+                  <% end %>
+                </li>
+
+                <li role="separator" class="divider"></li>
+
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                    <span class="glyphicon glyphicon-log-out"></span> Đăng xuất
+                  <% end %>
+                </li>
+               </ul>
+            </li>
+
+          <%else%>
+            <div class="btn navbar-btn navbar-right">
+              <%=link_to 'Đăng Ký', new_user_registration_path, class: "btn btn-default btn-sm"%>                  
+              <%=link_to 'Đăng Nhập', new_user_session_path, class: "btn btn-success btn-sm"%>
+            </div>
+          <%end%>
+        </ul>
+
+      </div>
+
+    </nav>
