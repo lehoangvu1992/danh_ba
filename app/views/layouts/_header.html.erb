@@ -8,12 +8,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <%= link_to image_tag("Contacts.png", width: '60', height: '60'), root_path ,{ class: "navbar-brand" }%>
+        <%= link_to image_tag("Contacts.png", width: '100', height: '100'), root_path ,{ class: "navbar-brand" }%>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
 
           <%if user_signed_in?%>
+           <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                  <%= current_user.email %><span class="caret"></span>
@@ -46,8 +47,7 @@
                 </li>
                </ul>
             </li>
-            <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
-          <%else%>
+            <%else%>
             <div class="btn navbar-btn navbar-right">
               <%=link_to 'Đăng Ký', new_user_registration_path, class: "btn btn-default btn-sm"%>                  
               <%=link_to 'Đăng Nhập', new_user_session_path, class: "btn btn-success btn-sm"%>
