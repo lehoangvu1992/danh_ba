@@ -1,53 +1,52 @@
 <%= form_for @contact, html: {multipart: true } do |f| %>
 
-  <div class="field">
+  <div class="field-image">
     <%= f.label :image %><br>
     <%= f.file_field :image%>
   </div>
 
-  <div>
-    <% if @contact.errors[:name].length > 0 %>
-      <p><%= @contact.errors[:name][0] %></p>
-    <% end %>
+  <div class="field-name">
     <%= f.label :name %>
    </div>
 
   <div>
     <%= f.text_field :name %>
+    <% if @contact.errors[:name].length > 0 %>
+      <p><%= @contact.errors[:name][0] %></p>
+    <% end %>
   </div>
 
-  <div>
-    <% if @contact.errors[:number].length > 0 %>
-      <p><%= @contact.errors[:number][0] %></p>
-    <% end %>
+  <div class="field-number">
     <%= f.label :number %>
    </div>
 
   <div>
     <%= f.text_field :number %>
+    <% if @contact.errors[:number].length > 0 %>
+      <p><%= @contact.errors[:number][0] %></p>
+    <% end %>
   </div>
 
-
-  <div>
-    <% if @contact.errors[:address].length > 0 %>
-      <p><%= @contact.errors[:address][0] %></p>
-    <% end %>
+  <div class="field-address">
     <%= f.label :address %>
   </div>
 
   <div>
     <%= f.text_area :address, size: "30x6" %>
+    <% if @contact.errors[:address].length > 0 %>
+      <p><%= @contact.errors[:address][0] %></p>
+    <% end %>
   </div>
 
-  <div>
-    <% if @contact.errors[:note].length > 0 %>
-      <p><%= @contact.errors[:note][0] %></p>
-    <% end %>
+  <div class="field-note">
     <%= f.label :note %>
   </div>
 
   <div>
     <%= f.text_area :note, size: "30x6" %>
+    <% if @contact.errors[:note].length > 0 %>
+      <p><%= @contact.errors[:note][0] %></p>
+    <% end %>
   </div>
 
   <div>
