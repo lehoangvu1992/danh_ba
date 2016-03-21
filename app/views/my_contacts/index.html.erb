@@ -4,7 +4,7 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Tên</th>
+        <th>Họ Tên</th>
         <th>Số điện thoại</th>
         <th>Địa chỉ</th>
         <th>Ghi chú</th>
@@ -21,4 +21,11 @@
     <% end %>
   </tbody>
   </table>
+
+  <p>
+    Download:
+    <%= link_to "CSV", my_contacts_path(format: "csv") %> |
+    <%= link_to "Excel", my_contacts_path(format: "xls") %>
+  </p>
+
 </div>

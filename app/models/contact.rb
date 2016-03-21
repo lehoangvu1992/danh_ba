@@ -3,4 +3,13 @@ class Contact < ActiveRecord::Base
 	
 	has_attached_file :image , styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#"}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+	
+	def self.to_csv(options = {})
+		CSV.generate(options) do |csv|
+			csv << column_names
+			csv.each do |contact|
+				csv << contact.attributes.valuse_at(*column_names)
+			end
+		end
+	end  
 end

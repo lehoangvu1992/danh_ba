@@ -1,18 +1,38 @@
+<h2>Chi tiết danh bạ</h2>
 
+<%= image_tag @contact.image.url(:medium) %>
+<li>
 <div class="contact-name">
-<%= @contact.name%>
+<span>Họ Tên:</span>  <span><%= @contact.name%></span>
 </div>
+</li>
 
-<%= image_tag @contact.image.url(:large) %>
-
+<li>
 <div class="contact-number">
-  <%= @contact.number %>
+  <span>Số điện thoại:</span><span><%= @contact.number %></span>
 </div>
+</li>
 
+<li>
+<div class="contact-address">
+  <span>Địa chỉ:</span><span><%= @contact.address %></span>
+</div>
+</li>
+
+<li>
+<div class="contact-note">
+  <span>Ghi chú:</span><span><%= @contact.note %></span>
+</div>
+</li>
+
+<span>
   <div class="contact-info">
     <%= link_to 'Sửa', edit_contact_path(@contact)%>
   </div>
+</span>
 
+<span>
   <div class="contact-info">
     <%= link_to 'Xoá', contact_path(@contact), method: :delete, data: { confirm: 'Bạn có muốn xoá bài này không?' } %>
   </div>
+</span>
