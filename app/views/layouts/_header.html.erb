@@ -46,7 +46,7 @@
                 </li>
                </ul>
             </li>
-
+            <li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
           <%else%>
             <div class="btn navbar-btn navbar-right">
               <%=link_to 'Đăng Ký', new_user_registration_path, class: "btn btn-default btn-sm"%>                  
